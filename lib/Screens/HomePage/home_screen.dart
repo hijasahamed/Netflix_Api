@@ -32,7 +32,6 @@ class _HomeScreenState extends State<HomeScreen> {
             padding: EdgeInsets.zero,            
             children:  [
               MainCard(size:size ),
-              Container(height: 1000,width: double.infinity,color: Colors.greenAccent,)
             ],
           ),
           HomeAppBar(colorNotifier: colornotifier, safeAreaHeight: safeAreaHeight, tabBarNotifier: tabbarnotifier),
