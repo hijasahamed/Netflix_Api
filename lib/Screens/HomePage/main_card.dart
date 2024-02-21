@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_api_app/Model/movie_model.dart';
 import 'package:netflix_api_app/Services/api_service.dart';
+import 'package:netflix_api_app/Services/functions.dart';
 import 'package:palette_generator/palette_generator.dart';
 
 // ignore: must_be_immutable
@@ -8,16 +9,14 @@ class MainCard extends StatelessWidget {
    MainCard({super.key,required this.size});
 
   Size size;
-  
-  get future => null;
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: future, 
+      future: getnowplaying(), 
       builder: (context,snapshot){
         if(snapshot.connectionState==ConnectionState.waiting){
-          return const CircularProgressIndicator(color: Colors.transparent);
+          return const CircularProgressIndicator(color: Colors.blue,strokeWidth: 2,);
         }
         else if(snapshot.hasError || !snapshot.hasData){ 
           return const Center(
@@ -28,7 +27,7 @@ class MainCard extends StatelessWidget {
         final data=snapshot.data ?? [];
 
         return FutureBuilder(
-          future: future, 
+          future: getPaletColor(data[data.length-1]), 
           builder: (context, paletteGenerator){
             if(paletteGenerator.connectionState==ConnectionState.waiting){
               return const CircularProgressIndicator(color: Colors.transparent,);
