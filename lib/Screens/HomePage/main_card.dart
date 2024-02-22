@@ -25,7 +25,7 @@ class MainCard extends StatelessWidget {
         }
         final data=snapshot.data ?? [];
         return FutureBuilder(
-          future: getPaletColor(data[data.length-1]), 
+          future: getPaletColor(data[data.length-6]), 
           builder: (context, paletteGenerator){
             if(paletteGenerator.connectionState==ConnectionState.waiting){
               return const CircularProgressIndicator(color: Colors.transparent,);
@@ -40,24 +40,23 @@ class MainCard extends StatelessWidget {
             return Container(
               decoration:   BoxDecoration(
                 gradient: LinearGradient(
-                  colors: [paletteColor ?? Colors.yellow,Colors.transparent],
-                  // colors: [Color.fromARGB(255, 43, 43, 42),Color.fromARGB(255, 33, 32, 30)],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  // stops: [0.0,2.0],
+                  colors: [paletteColor?? const Color.fromARGB(255, 240, 3, 3),Colors.transparent],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  stops: const [0.0,0.8],
                   tileMode: TileMode.clamp,
                 )
               ),
               width: double.infinity,
               height: size.height * .75,
               child:  Padding(
-                padding: const EdgeInsets.only(top: 160,bottom: 5,left: 25,right: 25),
+                padding: const EdgeInsets.only(top: 160,bottom: 10,left: 25,right: 25),
                 child: Container(
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(20),
                     image: DecorationImage(
                       image: NetworkImage(
-                        '$baseUrl${data[data.length-5].posterpath}'
+                        '$baseUrl${data[data.length-6].posterpath}'
                       ),
                       filterQuality: FilterQuality.high,
                       fit: BoxFit.fill

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:netflix_api_app/Screens/HomePage/home_appbar.dart';
 import 'package:netflix_api_app/Screens/HomePage/main_card.dart';
+import 'package:netflix_api_app/Screens/HomePage/movie_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -32,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
             padding: EdgeInsets.zero,            
             children:  [
               MainCard(size:size),
-              Container(color: Colors.black,height: 500,width: double.infinity,),
+              // MovieWidget(size: size, text: 'Trending Now', future: )
             ],
           ),
           HomeAppBar(colorNotifier: colornotifier, safeAreaHeight: safeAreaHeight, tabBarNotifier: tabbarnotifier),

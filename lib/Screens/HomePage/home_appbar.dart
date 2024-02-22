@@ -32,41 +32,44 @@ class HomeAppBar extends StatelessWidget {
                     Container(
                       height: safeAreaHeight,
                     ),
-                    Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            height: 60,
-                            width: 70,
-                            decoration: const BoxDecoration(
-                                image: DecorationImage(
-                                    image: NetworkImage(
-                                        'https://clipground.com/images/logo-de-netflix-clipart-1.png'),
-                                    fit: BoxFit.contain)),
-                          ),
-                          const Spacer(),
-                          IconButton(
-                            icon: const Icon(
-                              Icons.search,
-                              color: Colors.white,
-                              size: 26,
-                            ),
-                            onPressed: () {
-                              
-                            },
-                          ),
-                          const SizedBox(width: 10,),
-                          Container(
-                            decoration: BoxDecoration(
-                              color: Colors.greenAccent,
-                              borderRadius: BorderRadius.circular(6)
-                            ),
-                            width: 30,
-                            height: 30,
-                            child: const Icon(Icons.person,color: Colors.black,),
-                          )
-                        ],
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        right: 5
                       ),
+                      child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Container(
+                              height: 60,
+                              width: 70,
+                              decoration: const BoxDecoration(
+                                  image: DecorationImage(
+                                      image: NetworkImage(
+                                          'https://clipground.com/images/logo-de-netflix-clipart-1.png'),
+                                      fit: BoxFit.contain)),
+                            ),
+                            const Spacer(), 
+                            IconButton(
+                              icon: const Icon(
+                                Icons.search,
+                                color: Colors.white,
+                                size: 26,
+                              ),
+                              onPressed: () {},
+                            ),
+                            const SizedBox(width: 5,),
+                            Container(
+                              decoration: BoxDecoration(
+                                color: Colors.greenAccent,
+                                borderRadius: BorderRadius.circular(6)
+                              ),
+                              width: 30,
+                              height: 30,
+                              child: const Icon(Icons.person,color: Colors.black,),
+                            )
+                          ],
+                        ),
+                    ),
                   ],
                 ),
               ),
