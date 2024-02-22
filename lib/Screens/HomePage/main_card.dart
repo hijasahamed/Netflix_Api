@@ -74,7 +74,7 @@ class MainCard extends StatelessWidget {
                             width: 150,
                             decoration: BoxDecoration(
                               color: Colors.white,
-                              borderRadius: BorderRadius.circular(25)
+                              borderRadius: BorderRadius.circular(5)
                             ),
                             child: const Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -91,7 +91,7 @@ class MainCard extends StatelessWidget {
                             width: 150,
                             decoration: BoxDecoration(
                               color: Colors.white,
-                              borderRadius: BorderRadius.circular(25)
+                              borderRadius: BorderRadius.circular(5)
                             ),
                             child: const Row(
                               mainAxisAlignment: MainAxisAlignment.center,

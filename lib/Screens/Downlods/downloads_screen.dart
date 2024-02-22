@@ -108,7 +108,7 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
                           child: DownloadCard(
                             angle: 0,
                             height: size.width * .45,
-                            imagepath: '$baseUrl${data[2].coverImage}',
+                            imagepath: '$baseUrl${data[8].coverImage}',
                             width: size.width * .40,
                           ),
                         ),

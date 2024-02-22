@@ -22,7 +22,7 @@ class MovieWidget extends StatelessWidget {
         future: future,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return const CircularProgressIndicator(color: Colors.transparent);
+            return const CircularProgressIndicator(color: Colors.transparent,);
           } else if (snapshot.hasError || !snapshot.hasData) {
             return const Center(
               child: Text('Somthing went wrong'),
@@ -31,17 +31,18 @@ class MovieWidget extends StatelessWidget {
           final List<Movie> data=snapshot.data ?? [];
 
           return Padding(
-            padding: EdgeInsets.all(10),
+            padding:const EdgeInsets.all(10),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [ 
                 SizedBox(height: size.height/80,),
                 Text(text,style: const TextStyle(
-                  fontSize: 21,fontWeight: FontWeight.bold
+                  fontSize: 21,fontWeight: FontWeight.bold,
                 ),),
                 SizedBox(height: size.height/80,),
                 SizedBox(
-                  height: size.width*4,
-                  width: size.width,
+                  height: size.height/5,
+                  width: size.width*4,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemCount: key1==true ? 10 :data.length,
@@ -58,7 +59,8 @@ class MovieWidget extends StatelessWidget {
                         child: Text('top 10'),
                       )
                       : Container(
-                        width: size.width*.28,
+                        width: size.width*.30,
+                        height: size.width*.28,
                         margin: const EdgeInsets.only(right: 10),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(5),

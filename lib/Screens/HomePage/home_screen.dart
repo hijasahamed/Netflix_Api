@@ -34,8 +34,8 @@ class _HomeScreenState extends State<HomeScreen> {
             padding: EdgeInsets.zero,            
             children:  [
               MainCard(size:size),
-              MovieWidget(size: size, text: 'Trending Now', future: getpopular()),
-              
+              MovieWidget(size: size, text: 'Trending Now', future: getnowplaying()),
+              MovieWidget(size: size, text: 'New Releases', future: getpopular()),
             ],
           ),
           HomeAppBar(colorNotifier: colornotifier, safeAreaHeight: safeAreaHeight, tabBarNotifier: tabbarnotifier),
