@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:netflix_api_app/Screens/Downlods/download_cards.dart';
+import 'package:netflix_api_app/Screens/Downlods/notification.dart';
 import 'package:netflix_api_app/Screens/appbar_screen.dart';
 import 'package:netflix_api_app/Services/api_service.dart';
 import 'package:netflix_api_app/Services/functions.dart';
@@ -27,6 +28,7 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
         child:  Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            Notifications(size: size),
             SizedBox(
               height: size.height/32,
             ),
@@ -43,7 +45,7 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
               ),
             ),
             SizedBox(
-              height: size.height/20,
+              height: size.height/38,
             ),
             const Padding(
               padding: EdgeInsets.only(left: 10),
@@ -54,7 +56,7 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
             ),
             const Padding(
               padding:EdgeInsets.only(left: 10,right: 10),
-              child: Text("We'll download movies and shows just for you, so you'll nalways have somthing to watch",
+              child: Text("We'll download movies and shows just for you, so you'll always have somthing to watch",
               style: TextStyle(fontSize: 15,wordSpacing: 2,color: Colors.grey),),
             ),
             SizedBox(
@@ -80,7 +82,7 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
                           alignment: Alignment.center,
                           child: CircleAvatar(
                             radius: size.width* .32,
-                            backgroundColor:const Color.fromARGB(255, 68, 68, 68),
+                            backgroundColor:Color.fromARGB(125, 72, 72, 72),
                           )
                         ),
                         Align(
@@ -89,7 +91,7 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
                             angle: pi/16, 
                             imagepath: '$baseUrl${data[0].coverImage}', 
                             height: size.width*.45, 
-                            width: size.width*.33,
+                            width: size.width*.40,
                             margin: const EdgeInsets.only(left: 150),
                           ),
                         ),
@@ -99,15 +101,15 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
                                 angle: pi / -16,
                                 imagepath: '$baseUrl${data[1].coverImage}',
                                 height: size.width * .45,
-                                width: size.width * .33,
+                                width: size.width * .40,
                                 margin: const EdgeInsets.only(right: 150))),
                         Align(
                           alignment: Alignment.center,
                           child: DownloadCard(
                             angle: 0,
-                            height: size.width * .50,
+                            height: size.width * .45,
                             imagepath: '$baseUrl${data[2].coverImage}',
-                            width: size.width * .35,
+                            width: size.width * .40,
                           ),
                         ),
                       ],

@@ -31,7 +31,8 @@ class _HomeScreenState extends State<HomeScreen> {
             controller: scrollcontroller,
             padding: EdgeInsets.zero,            
             children:  [
-              MainCard(size:size ),
+              MainCard(size:size),
+              Container(color: Colors.black,height: 500,width: double.infinity,),
             ],
           ),
           HomeAppBar(colorNotifier: colornotifier, safeAreaHeight: safeAreaHeight, tabBarNotifier: tabbarnotifier),

@@ -16,16 +16,14 @@ class MainCard extends StatelessWidget {
       future: getnowplaying(), 
       builder: (context,snapshot){
         if(snapshot.connectionState==ConnectionState.waiting){
-          return const CircularProgressIndicator(color: Colors.blue,strokeWidth: 2,);
+          return const CircularProgressIndicator(color: Colors.transparent,strokeWidth: 2,);
         }
         else if(snapshot.hasError || !snapshot.hasData){ 
           return const Center(
             child: Text('syam'),
           );
         }
-
         final data=snapshot.data ?? [];
-
         return FutureBuilder(
           future: getPaletColor(data[data.length-1]), 
           builder: (context, paletteGenerator){
@@ -34,61 +32,78 @@ class MainCard extends StatelessWidget {
             }
             else if(paletteGenerator.hasError || !paletteGenerator.hasData){
               return const Center(
-                child: Text('hijas'),
+                child: Text('Something Went Wrong'),
               );
             }
+            final palette = paletteGenerator.data;
+            final paletteColor = palette?.colors.first;
             return Container(
-              decoration: const BoxDecoration(
+              decoration:   BoxDecoration(
                 gradient: LinearGradient(
-                  colors: [Colors.red,Colors.yellow],
+                  colors: [paletteColor ?? Colors.yellow,Colors.transparent],
+                  // colors: [Color.fromARGB(255, 43, 43, 42),Color.fromARGB(255, 33, 32, 30)],
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
-                  stops: [0.0,2.0],
+                  // stops: [0.0,2.0],
                   tileMode: TileMode.clamp,
                 )
               ),
               width: double.infinity,
-              height: size.height * .78,
+              height: size.height * .75,
               child:  Padding(
-                padding: EdgeInsets.all(20),
+                padding: const EdgeInsets.only(top: 160,bottom: 5,left: 25,right: 25),
                 child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    image: DecorationImage(
+                      image: NetworkImage(
+                        '$baseUrl${data[data.length-5].posterpath}'
+                      ),
+                      filterQuality: FilterQuality.high,
+                      fit: BoxFit.fill
+                    ),
+                  ),
                   child:  Padding(
-                    padding: EdgeInsets.only(bottom: 50),
-                    child: Align(
-                      alignment: Alignment.bottomCenter,
-                      child: Row(
-                        children: [ 
-                          GestureDetector(
-                            child: Container(
-                              height: 44,
-                              width: 125,
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(25)
-                              ),
-                              child: const Center(
-                                child: Text('Play',style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500),),
-                              ),
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [ 
+                        GestureDetector(
+                          child: Container(
+                            height: 44,
+                            width: 150,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(25)
+                            ),
+                            child: const Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [ 
+                                Icon(Icons.play_arrow,color: Colors.black,),
+                                Text("Play",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),)                                  
+                              ],
                             ),
                           ),
-                          GestureDetector(
-                            child: Container(
-                              height: 44,
-                              width: 125,
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(25)
-                              ),
-                              child: const Row(
-                                children: [ 
-                                  Icon(Icons.add,color: Colors.black,),
-                                  Text("My List",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500),)                                  
-                                ],
-                              ),
+                        ),
+                        GestureDetector(
+                          child: Container(
+                            height: 44,
+                            width: 150,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(25)
                             ),
-                          )
-                        ],
-                      ),
+                            child: const Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [ 
+                                Icon(Icons.add,color: Colors.black,),
+                                Text("My List",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),)                                  
+                              ],
+                            ),
+                          ),
+                        )
+                      ],
                     ),
                   ),
                 ),
