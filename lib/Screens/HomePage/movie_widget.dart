@@ -56,16 +56,16 @@ class MovieWidget extends StatelessWidget {
 
                       return key1==true
                       ? Container(
-                        width: size.width*.45,
-                        margin: const EdgeInsets.only(right: 10),
+                        width: size.width*.41,
+                        margin: const EdgeInsets.only(right: 5),
                         child: Stack(
                           children: [ 
                             Positioned(
                               bottom: size.width*.01,
                               left: size.width*.02,
                               child: BorderedText(
-                                strokeColor: Colors.white,
-                                strokeWidth: 1.5,
+                                strokeColor: Colors.white38,
+                                strokeWidth: 1,
                                 child: Text(
                                   '${index+1}',
                                   style: index+1==10
@@ -97,6 +97,21 @@ class MovieWidget extends StatelessWidget {
                                   )
                                 )
                               )
+                            ),
+                            Align(
+                              alignment: Alignment.topRight,
+                              child: Container(
+                                width: size.width*.30,
+                                height: size.width*.40,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(5),
+                                  image: DecorationImage(
+                                    image: NetworkImage(imageurl),
+                                    filterQuality: FilterQuality.high,
+                                    fit: BoxFit.cover
+                                  )
+                                ),
+                              ),
                             )
                           ],
                         )

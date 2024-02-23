@@ -97,7 +97,7 @@ class MainCard extends StatelessWidget {
                             child: const Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [ 
-                                Icon(Icons.add,color: Colors.white,size: 40,),
+                                Icon(Icons.add,color: Colors.white,size:35,),
                                 Text("My List",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 16),)                                  
                               ],
                             ),
