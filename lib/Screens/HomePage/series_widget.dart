@@ -31,11 +31,12 @@ class SeriesWidget extends StatelessWidget {
           return Padding(
             padding: const EdgeInsets.all(10),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(height: size.height/80,),
-                Text(text,style: TextStyle(fontSize: 21,fontWeight: FontWeight.bold),),
+                Text(text,style: const TextStyle(fontSize: 21,fontWeight: FontWeight.bold),),
                 SizedBox(height: size.height/80,),
-                Container(
+                SizedBox(
                   height: size.width*.4,
                   width: size.width,
                   child: ListView.builder(

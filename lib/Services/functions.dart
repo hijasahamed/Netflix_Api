@@ -63,3 +63,18 @@ Future<List<Movie>> gettoprated()async{
   return result;
 }
 
+Future<List<Series>> getairingtoday()async{
+  const url = 'https://api.themoviedb.org/3/tv/airing_today?$apikey';
+  final response=await http.get(
+    Uri.parse(url),
+    headers: {
+      'Authorization':
+          'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4ZjcyMWMyODQ4OTYyZmE2MTZkZjUxNGMyYTJiZmVhNCIsInN1YiI6IjY1YjEwNjdjMjc5MGJmMDE3MjU2M2MwNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.pybb4ojBy8ZKC-xtJXPR8rjQQxbgVp4AN7ctOP2uFdc',
+      'accept': 'application/json',
+    },
+  );
+  final json=jsonDecode(response.body) ['results'] as List;
+  final result=json.map((e) => Series.fromjason(e)).toList();
+  return result;
+}
+
