@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:netflix_api_app/Screens/Search/search.dart';
 
 class HomeAppBar extends StatelessWidget {
   const HomeAppBar({
@@ -55,7 +56,13 @@ class HomeAppBar extends StatelessWidget {
                                 color: Colors.white,
                                 size: 26,
                               ),
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                    builder: (context) => SearchPage()
+                                  )
+                                );
+                              },
                             ),
                             const SizedBox(width: 5,),
                             Container(
