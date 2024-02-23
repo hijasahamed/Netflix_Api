@@ -3,6 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:netflix_api_app/Screens/HomePage/home_appbar.dart';
 import 'package:netflix_api_app/Screens/HomePage/main_card.dart';
 import 'package:netflix_api_app/Screens/HomePage/movie_widget.dart';
+import 'package:netflix_api_app/Screens/HomePage/series_widget.dart';
 import 'package:netflix_api_app/Services/functions.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -35,8 +36,9 @@ class _HomeScreenState extends State<HomeScreen> {
             children:  [
               MainCard(size:size),
               MovieWidget(size: size, text: 'Trending Now', future: getnowplaying()),
+              SeriesWidget(size: size, text: 'Tv Series', future: gettvdramas()),
+              MovieWidget(size: size, text: 'Top Rated', future: gettoprated(),key1: true,),
               MovieWidget(size: size, text: 'Upcoming Movies', future: getupcoming()),
-              MovieWidget(size: size, text: 'Top Rated', future: gettoprated(),key1: true,)
             ],
           ),
           HomeAppBar(colorNotifier: colornotifier, safeAreaHeight: safeAreaHeight, tabBarNotifier: tabbarnotifier),
