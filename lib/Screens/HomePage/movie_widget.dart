@@ -1,4 +1,6 @@
+import 'package:bordered_text/bordered_text.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:netflix_api_app/Model/movie_model.dart';
 import 'package:netflix_api_app/Services/api_service.dart';
 
@@ -56,7 +58,48 @@ class MovieWidget extends StatelessWidget {
                       ? Container(
                         width: size.width*.45,
                         margin: const EdgeInsets.only(right: 10),
-                        child: Text('top 10'),
+                        child: Stack(
+                          children: [ 
+                            Positioned(
+                              bottom: size.width*.01,
+                              left: size.width*.02,
+                              child: BorderedText(
+                                strokeColor: Colors.white,
+                                strokeWidth: 1.5,
+                                child: Text(
+                                  '${index+1}',
+                                  style: index+1==10
+                                  ?GoogleFonts.alumniSansInlineOne(
+                                    textStyle: TextStyle(
+                                      color: Colors.grey.shade900,
+                                      shadows: [
+                                        Shadow(
+                                          color: Colors.grey.shade700.withOpacity(.9),
+                                          offset: const Offset(-3.0,-1.0),
+                                          blurRadius: 30.0
+                                        )
+                                      ],
+                                      fontSize: 110,
+                                      fontWeight: FontWeight.bold
+                                    )
+                                  )
+                                  : TextStyle(
+                                    color: Colors.grey.shade900,
+                                    shadows: [
+                                      Shadow(
+                                        color: Colors.grey.shade700.withOpacity(.9),
+                                        offset: const Offset(-3.0,-1.0),
+                                        blurRadius: 30
+                                      )
+                                    ],
+                                    fontSize: 110,
+                                    fontWeight: FontWeight.bold
+                                  )
+                                )
+                              )
+                            )
+                          ],
+                        )
                       )
                       : Container(
                         width: size.width*.30,

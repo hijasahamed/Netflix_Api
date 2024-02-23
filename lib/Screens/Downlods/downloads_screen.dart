@@ -82,7 +82,7 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
                           alignment: Alignment.center,
                           child: CircleAvatar(
                             radius: size.width* .32,
-                            backgroundColor:Color.fromARGB(125, 72, 72, 72),
+                            backgroundColor:const Color.fromARGB(125, 72, 72, 72),
                           )
                         ),
                         Align(
@@ -90,8 +90,8 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
                           child: DownloadCard(
                             angle: pi/16, 
                             imagepath: '$baseUrl${data[0].coverImage}', 
-                            height: size.width*.45, 
-                            width: size.width*.40,
+                            height: size.width*.39, 
+                            width: size.width*.39,
                             margin: const EdgeInsets.only(left: 150),
                           ),
                         ),
@@ -100,16 +100,16 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
                             child: DownloadCard(
                                 angle: pi / -16,
                                 imagepath: '$baseUrl${data[1].coverImage}',
-                                height: size.width * .45,
-                                width: size.width * .40,
+                                height: size.width * .39,
+                                width: size.width * .39,
                                 margin: const EdgeInsets.only(right: 150))),
                         Align(
                           alignment: Alignment.center,
                           child: DownloadCard(
                             angle: 0,
-                            height: size.width * .45,
+                            height: size.width * .39,
                             imagepath: '$baseUrl${data[8].coverImage}',
-                            width: size.width * .40,
+                            width: size.width * .39,
                           ),
                         ),
                       ],

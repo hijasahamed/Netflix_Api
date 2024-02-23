@@ -79,8 +79,8 @@ class MainCard extends StatelessWidget {
                             child: const Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [ 
-                                Icon(Icons.play_arrow,color: Colors.black,),
-                                Text("Play",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),)                                  
+                                Icon(Icons.play_arrow,color: Colors.black,size: 40,),
+                                Text("Play",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 16),)                                  
                               ],
                             ),
                           ),
@@ -90,14 +90,15 @@ class MainCard extends StatelessWidget {
                             height: 44,
                             width: 150,
                             decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(5)
+                              color: Colors.grey[800],
+                              borderRadius: BorderRadius.circular(5),
+                              
                             ),
                             child: const Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [ 
-                                Icon(Icons.add,color: Colors.black,),
-                                Text("My List",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),)                                  
+                                Icon(Icons.add,color: Colors.white,size: 40,),
+                                Text("My List",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 16),)                                  
                               ],
                             ),
                           ),

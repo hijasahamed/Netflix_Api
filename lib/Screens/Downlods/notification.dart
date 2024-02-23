@@ -19,7 +19,7 @@ class Notifications extends StatelessWidget {
           children: [ 
             CircleAvatar(
               radius: size.width/18,
-              backgroundColor: Color.fromARGB(255, 204, 18, 5),
+              backgroundColor: const Color.fromARGB(255, 204, 18, 5),
               child: const Icon(Icons.notifications),
             ),
             const Padding(
