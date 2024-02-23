@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:netflix_api_app/Model/movie_model.dart';
+import 'package:netflix_api_app/Model/search_model.dart';
 import 'package:netflix_api_app/Model/series_model.dart';
 import 'package:netflix_api_app/Services/api_service.dart';
 import 'package:http/http.dart' as http;
@@ -77,4 +78,41 @@ Future<List<Series>> getairingtoday()async{
   final result=json.map((e) => Series.fromjason(e)).toList();
   return result;
 }
+
+// search api
+
+Future<List<SearchModel>> getSearchResults(String name) async {
+  final searchurl = '/search/multi?query={name}&'.replaceFirst('{name}', name);
+  final headers = {
+    'Authorization':
+        'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4ZjcyMWMyODQ4OTYyZmE2MTZkZjUxNGMyYTJiZmVhNCIsInN1YiI6IjY1YjEwNjdjMjc5MGJmMDE3MjU2M2MwNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.pybb4ojBy8ZKC-xtJXPR8rjQQxbgVp4AN7ctOP2uFdc',
+    'accept': 'application/json',
+  };
+  final response = await http.get(
+    headers: headers,
+    Uri.parse('https://api.themoviedb.org/3$searchurl$apikey'),
+  );
+  final decodedResult = jsonDecode(response.body)['results'] as List;
+
+  final results =
+      decodedResult.map((result) => SearchModel.fromjson(result)).toList();
+
+  return results;
+}
+
+Future<List<SearchModel>> gettrendingforSearch()async{
+  const url='https://api.themoviedb.org/3/trending/all/day?$apikey';
+  final response=await http.get(
+    Uri.parse(url),
+    headers: {
+    'Authorization':
+        'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4ZjcyMWMyODQ4OTYyZmE2MTZkZjUxNGMyYTJiZmVhNCIsInN1YiI6IjY1YjEwNjdjMjc5MGJmMDE3MjU2M2MwNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.pybb4ojBy8ZKC-xtJXPR8rjQQxbgVp4AN7ctOP2uFdc',
+    'accept': 'application/json',
+  }
+  );
+  final json=jsonDecode(response.body) ['results'] as List;
+  final result=json.map((e) => SearchModel.fromjson(e)).toList();
+  return result;
+}
+
 
