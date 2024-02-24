@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_api_app/Services/api_service.dart';
 
-class SecondTab extends StatelessWidget {
-   SecondTab({super.key,required this.future,required topten});
+// ignore: must_be_immutable
+class SecondAndThirdTab extends StatelessWidget {
+   SecondAndThirdTab({super.key,required this.future,required this.topten});
 
   Future future;
   bool? topten;

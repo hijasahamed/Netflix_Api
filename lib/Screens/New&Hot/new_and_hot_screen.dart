@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_api_app/Screens/New&Hot/Tabs/first_tab.dart';
-import 'package:netflix_api_app/Screens/New&Hot/Tabs/second_tab.dart';
+import 'package:netflix_api_app/Screens/New&Hot/Tabs/second_and_third_tab.dart';
 import 'package:netflix_api_app/Screens/appbar_screen.dart';
 import 'package:netflix_api_app/Services/functions.dart';
 
@@ -44,8 +44,8 @@ class _NewandhotscreenState extends State<Newandhotscreen> {
                 tabs: [
                   customTab(text: '🍿 Coming Soon '),
                   customTab(text: '🔥 Everyone\'s watching '),
+                  customTab(text: '🔟 Top 10 Movies'),
                   customTab(text: '🔟 Top 10 Tv Shows'),
-                  customTab(text: '🔟 Top 10 Movies')
                 ]
               )
               )
@@ -53,10 +53,9 @@ class _NewandhotscreenState extends State<Newandhotscreen> {
           body: TabBarView(
             children: [
               Firsttab(future: getupcoming()),
-              SecondTab(future: geteveryonewatching(),topten: false,),
-              
-              SecondTab(future: gettoprated(), topten: true),
-
+              SecondAndThirdTab(future: geteveryonewatching(),topten: false,),              
+              SecondAndThirdTab(future: gettoprated(), topten: true),
+              SecondAndThirdTab(future: getnowplaying(), topten: true)
             ]
           ),
         )
