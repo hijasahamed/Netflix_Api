@@ -20,7 +20,7 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
     final size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.black,
-      appBar: AppbarScreen(title: 'Downloads',context: context),
+      appBar: appbarWidget(title: 'Downloads',context: context),
       body: Container(
         height: size.height,
         width: double.maxFinite,

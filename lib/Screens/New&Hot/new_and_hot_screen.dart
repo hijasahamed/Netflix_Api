@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:netflix_api_app/Screens/New&Hot/first_tab.dart';
 import 'package:netflix_api_app/Screens/appbar_screen.dart';
+import 'package:netflix_api_app/Services/functions.dart';
 
 class Newandhotscreen extends StatefulWidget {
   const Newandhotscreen({super.key});
@@ -15,7 +17,7 @@ class _NewandhotscreenState extends State<Newandhotscreen> {
       length: 4, 
       child: SafeArea(
         child: Scaffold(
-          appBar: AppbarScreen(
+          appBar: appbarWidget(
             title: 'New & Hot',
             context: context,
             notification: true,
@@ -46,6 +48,12 @@ class _NewandhotscreenState extends State<Newandhotscreen> {
                 ]
               )
               )
+          ),
+          body: TabBarView(
+            children: [
+              Firsttab(future: getupcoming()),
+              
+            ]
           ),
         )
       )

@@ -15,7 +15,7 @@ class SearchPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final size=MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppbarScreen(
+      appBar: appbarWidget(
         title:'Search',
         bottom: PreferredSize(
               preferredSize: const Size.fromHeight(50),
