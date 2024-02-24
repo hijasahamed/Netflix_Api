@@ -28,7 +28,7 @@ class DownloadCard extends StatelessWidget {
           image: DecorationImage(
             image: NetworkImage(imagepath),
             filterQuality: FilterQuality.high,
-            fit: BoxFit.fill
+            fit: BoxFit.cover
           )
         ),
       ),

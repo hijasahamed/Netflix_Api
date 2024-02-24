@@ -3,26 +3,31 @@
 import 'package:flutter/material.dart';
 
 class SearchBarWidget extends StatelessWidget {
-  const SearchBarWidget({super.key,required this.devicesize,this.search});
+  const SearchBarWidget({super.key, required this.deviceSize, this.search});
 
-  final Size devicesize;
+  final Size deviceSize;
+
   final ValueNotifier<TextEditingController>? search;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 50,
-      width: devicesize.width,
-      color: Colors.amber,
+      width: deviceSize.width,
+      color: const Color(0xff262626),
       child: Row(
         children: [
-          const SizedBox(width: 15,),
+          const SizedBox(
+            width: 15,
+          ),
           Icon(
             Icons.search,
             color: Colors.white.withOpacity(.6),
             size: 30,
           ),
-          const SizedBox(width: 10,),
+          const SizedBox(
+            width: 10,
+          ),
           Expanded(
             child: TextField(
               controller: search!.value,

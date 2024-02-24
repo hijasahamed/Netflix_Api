@@ -20,7 +20,7 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
     final size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.black,
-      appBar: appbarScreen(title: 'Downloads',context: context),
+      appBar: AppbarScreen(title: 'Downloads',context: context),
       body: Container(
         height: size.height,
         width: double.maxFinite,
@@ -90,8 +90,8 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
                           child: DownloadCard(
                             angle: pi/16, 
                             imagepath: '$baseUrl${data[0].coverImage}', 
-                            height: size.width*.39, 
-                            width: size.width*.39,
+                            height: size.width*.45, 
+                            width: size.width*.33,
                             margin: const EdgeInsets.only(left: 150),
                           ),
                         ),
@@ -100,16 +100,16 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
                             child: DownloadCard(
                                 angle: pi / -16,
                                 imagepath: '$baseUrl${data[1].coverImage}',
-                                height: size.width * .39,
-                                width: size.width * .39,
+                                height: size.width * .45,
+                                width: size.width * .33,
                                 margin: const EdgeInsets.only(right: 150))),
                         Align(
                           alignment: Alignment.center,
                           child: DownloadCard(
                             angle: 0,
-                            height: size.width * .39,
+                            height: size.width * .50,
                             imagepath: '$baseUrl${data[8].coverImage}',
-                            width: size.width * .39,
+                            width: size.width * .35,
                           ),
                         ),
                       ],

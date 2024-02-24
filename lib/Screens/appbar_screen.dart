@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-AppBar appbarScreen(
+AppBar AppbarScreen(
     {required String title,
     PreferredSize? bottom,
     BuildContext? context,

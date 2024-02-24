@@ -25,9 +25,9 @@ class HomeAppBar extends StatelessWidget {
               AnimatedContainer(
                 duration: const Duration(microseconds: 500),
                 color: isTransparent
-                ?Colors.black.withOpacity(.5)
+                ?const Color.fromARGB(255, 54, 54, 54)
                 :Colors.transparent,
-                height: 65+safeAreaHeight,
+                height: 60+safeAreaHeight,
                 child: Column(
                   children: [
                     Container(
@@ -72,7 +72,6 @@ class HomeAppBar extends StatelessWidget {
                               ),
                               width: 30,
                               height: 30,
-                              child: const Icon(Icons.person,color: Colors.black,),
                             )
                           ],
                         ),
@@ -89,7 +88,7 @@ class HomeAppBar extends StatelessWidget {
                     height: value ? 30 :0,
                     width: double.maxFinite,
                     color: isTransparent
-                    ?Colors.black.withOpacity(.5)
+                    ?Colors.transparent
                     : Colors.transparent,
                     child: const Row(
                       children: [ 
@@ -124,10 +123,10 @@ class ContainerButton extends StatelessWidget {
       height: 30,
       padding: const EdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(
-        border: Border.all(color: Colors.white,width: .5),
+        border: Border.all(color: Colors.white,width: 1),
         borderRadius: BorderRadius.circular(30)
       ),
-      child: Text(label,style:const TextStyle(color: Colors.white),),
+      child: Text(label,style:const TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
     );
   }
 }
