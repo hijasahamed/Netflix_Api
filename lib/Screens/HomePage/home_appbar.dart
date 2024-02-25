@@ -25,7 +25,7 @@ class HomeAppBar extends StatelessWidget {
               AnimatedContainer(
                 duration: const Duration(microseconds: 500),
                 color: isTransparent
-                ?const Color.fromARGB(255, 54, 54, 54)
+                ? Colors.black.withOpacity(.9)
                 :Colors.transparent,
                 height: 60+safeAreaHeight,
                 child: Column(

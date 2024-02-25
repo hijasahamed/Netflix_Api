@@ -66,7 +66,7 @@ class Notifications extends StatelessWidget {
                     Text('28 Feb'),
                   ],
                 ),
-              )
+              ),
             ],
           ),
         )

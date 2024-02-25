@@ -108,10 +108,7 @@ Future<List<SearchModel>> getSearchResults(String name) async {
     Uri.parse('https://api.themoviedb.org/3$searchurl$apikey'),
   );
   final decodedResult = jsonDecode(response.body)['results'] as List;
-
-  final results =
-      decodedResult.map((result) => SearchModel.fromjson(result)).toList();
-
+  final results =decodedResult.map((result) => SearchModel.fromjson(result)).toList();
   return results;
 }
 

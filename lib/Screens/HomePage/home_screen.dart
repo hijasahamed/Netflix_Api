@@ -39,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
               SeriesWidget(size: size, text: 'Tv Series', future: gettvdramas()),
               MovieWidget(size: size, text: 'Top Rated', future: gettoprated(),key1: true,),
               SeriesWidget(size: size, text: 'Airing Today', future: getairingtoday()),
-              MovieWidget(size: size, text: 'Upcoming Movies', future: getupcoming()),
+              MovieWidget(size: size, text: 'Upcoming Movies', future: geteveryonewatching()),
             ],
           ),
           HomeAppBar(colorNotifier: colornotifier, safeAreaHeight: safeAreaHeight, tabBarNotifier: tabbarnotifier),
