@@ -13,7 +13,7 @@ class MovieWidget extends StatelessWidget {
       required this.future,
       this.key1});
 
-  String text;
+   final String text;
   Size size;
   Future future;
   bool? key1;

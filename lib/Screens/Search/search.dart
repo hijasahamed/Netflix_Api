@@ -39,53 +39,6 @@ class SearchPage extends StatelessWidget {
     );
   }
 
-  Column searchresultview(){
-    return  Column(
-      children: [
-        const Text('Movies & Tv',style: TextStyle(fontSize: 20,fontWeight: FontWeight.w600),),
-        const SizedBox(height: 10,),
-        Expanded(
-          child: FutureBuilder(
-            future: getSearchResults(searchNotifier.value.text.toLowerCase()), 
-            builder: (context,snapshot){
-              if(snapshot.connectionState==ConnectionState.waiting){
-                return const CircularProgressIndicator(color: Colors.transparent,);
-              }
-              else if(snapshot.hasError || !snapshot.hasData){
-                return const Center(
-                  child: Text('Something Went Wrong'),
-                );
-              }
-              final results=snapshot.data ??[];
-              return GridView.builder(
-                shrinkWrap: true,
-                itemCount: results.length,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 3,
-                    mainAxisSpacing: 5,
-                    crossAxisSpacing: 5,
-                    childAspectRatio: 1 / 1.5
-                ),
-                itemBuilder: (context,index){
-                  final data=results[index];
-                  return Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(6),
-                      image: DecorationImage(
-                        image: NetworkImage( '$baseUrl${data.movie == null ? data.series?.posterImage ?? data.series!.coverImage : data.movie!.posterpath}'),
-                        filterQuality: FilterQuality.high,
-                        fit: BoxFit.cover
-                      )
-                    ),
-                  );
-                }
-              );
-            }
-          )
-        )
-      ],
-    );
-  }
 
   Column recomendationView() {
     return Column(
@@ -163,6 +116,57 @@ class SearchPage extends StatelessWidget {
                   );
                 });
           }))
+      ],
+    );
+  }
+
+   Column searchresultview(){
+    return  Column(
+      children: [
+        const Text('Movies & Tv',style: TextStyle(fontSize: 20,fontWeight: FontWeight.w600),),
+        const SizedBox(height: 10,),
+        Expanded(
+          child: FutureBuilder(
+            future: getSearchResults(searchNotifier.value.text.toLowerCase()), 
+            builder: (context,snapshot){
+              if(snapshot.connectionState==ConnectionState.waiting){
+                return const CircularProgressIndicator(color: Colors.transparent,);
+              }
+              else if(snapshot.hasError || !snapshot.hasData){
+                return const Center(
+                  child: Text('Something Went Wrong'),
+                );
+              }
+              final results=snapshot.data ??[];
+              if(results.isEmpty){
+                return const Center(child: Text('No Results Found',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 23),),);
+              }
+              return GridView.builder(
+                shrinkWrap: true,
+                itemCount: results.length,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3,
+                    mainAxisSpacing: 5,
+                    crossAxisSpacing: 5,
+                    childAspectRatio: 1 / 1.5
+                ),
+                itemBuilder: (context,index){
+                  final data=results[index];
+                  return Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(6),
+                      image: DecorationImage(
+                        image: NetworkImage( '$baseUrl${data.movie == null ? data.series?.posterImage ?? data.series!.coverImage : data.movie!.posterpath}'),
+                        filterQuality: FilterQuality.high,
+                        fit: BoxFit.cover
+                      )
+                    ),
+                  );
+                }
+              );
+            }
+          )
+        )
       ],
     );
   }

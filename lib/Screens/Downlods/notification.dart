@@ -15,20 +15,23 @@ class Notifications extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Column(
       children: [
-        Row(
-          children: [ 
-            CircleAvatar(
-              radius: size.width/18,
-              backgroundColor: const Color.fromARGB(255, 204, 18, 5),
-              child: const Icon(Icons.notifications),
-            ),
-            const Padding(
-              padding: EdgeInsets.only(left: 8),
-              child: Text('Notifications',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
-            ),
-            const Spacer(),
-            const Icon(Icons.arrow_forward_ios_rounded,size: 18,) 
-          ],
+        Padding(
+          padding: const EdgeInsets.only(left: 5),
+          child: Row(
+            children: [ 
+              CircleAvatar(
+                radius: size.width/18,
+                backgroundColor: const Color.fromARGB(255, 204, 18, 5),
+                child: const Icon(Icons.notifications),
+              ),
+              const Padding(
+                padding: EdgeInsets.only(left: 8),
+                child: Text('Notifications',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+              ),
+              const Spacer(),
+              const Icon(Icons.arrow_forward_ios_rounded,size: 18,) 
+            ],
+          ),
         ),
         Padding(
           padding: const EdgeInsets.only(top: 10,left: 26),
@@ -63,7 +66,7 @@ class Notifications extends StatelessWidget {
                   children: [
                     Text('Netflix Lookahead',style: TextStyle(fontWeight: FontWeight.bold),),
                     Text('Explore what coming soon'),
-                    Text('28 Feb'),
+                    Text('26 Feb'),
                   ],
                 ),
               ),
